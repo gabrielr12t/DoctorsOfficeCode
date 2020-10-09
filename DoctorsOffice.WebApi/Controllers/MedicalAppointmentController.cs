@@ -9,7 +9,8 @@ using System.Threading.Tasks;
 namespace DoctorsOffice.WebApi.Controllers
 {
     [ApiController]
-    [Route("api/medicalAppointment")]
+    // [Route("api/medicalAppointment")]
+    [Route("api/[controller]")]
     public class MedicalAppointmentController : ControllerBase
     {
         private readonly IMedicalAppointmentService _medicalAppointmentService;
