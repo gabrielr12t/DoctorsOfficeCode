@@ -7,7 +7,8 @@ namespace DoctorsOffice.Core.Models.Base
     {
         public ModelBase()
         {
-            Created = DateTime.UtcNow;
+            if (Created == DateTime.MinValue)
+                Created = DateTime.UtcNow;
         }
 
         public int Id { get; set; }

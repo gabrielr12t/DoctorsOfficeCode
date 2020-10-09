@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\Libraries\DoctorsOffice.Data\DoctorsOffice.Data.csproj" />
     <ProjectReference Include="..\Libraries\DoctorsOffice.Services\DoctorsOffice.Services.csproj" />
+    <ProjectReference Include="..\Presentation\DoctorsOffice.Presentation.Framework\DoctorsOffice.Presentation.Framework.csproj" />
   </ItemGroup>
 
 

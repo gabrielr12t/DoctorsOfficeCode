@@ -1,4 +1,5 @@
-﻿using DoctorsOffice.Core.Models;
+﻿using DoctorsOffice.Core;
+using DoctorsOffice.Core.Models;
 using DoctorsOffice.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -23,12 +24,22 @@ namespace DoctorsOffice.Services.MedicalAppointments
 
         public async Task<MedicalAppointment> AddAsync(MedicalAppointment medicalAppointment)
         {
+            if (medicalAppointment == null)
+                throw new ArgumentNullException(nameof(medicalAppointment));
+
             var query = _medicalAppointmentRepository.Table;
 
             bool hasSchedule = query.Any(t => t.StartDate >= medicalAppointment.StartDate && t.FinalDate <= medicalAppointment.FinalDate);
 
             if (hasSchedule)
+            {
                 throw new InvalidOperationException("Já existe uma consulta dentro dessa data.");
+            }
+
+            if(medicalAppointment is IValidate validate)
+            {
+                validate.Validate();
+            }
 
             return await _medicalAppointmentRepository.AddAsync(medicalAppointment);
         }
@@ -47,13 +58,13 @@ namespace DoctorsOffice.Services.MedicalAppointments
 
             return await query.ToListAsync();
         }
-
-        public async Task InsertAsync(MedicalAppointment medicalAppointment)
+       
+        public async Task RemoveAsync(MedicalAppointment medicalAppointment)
         {
             if (medicalAppointment == null)
                 throw new ArgumentNullException(nameof(medicalAppointment));
 
-            await _medicalAppointmentRepository.AddAsync(medicalAppointment);
+            await _medicalAppointmentRepository.RemoveAsync(medicalAppointment);
         }
     }
 }

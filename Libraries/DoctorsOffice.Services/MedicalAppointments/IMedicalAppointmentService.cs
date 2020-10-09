@@ -11,6 +11,6 @@ namespace DoctorsOffice.Services.MedicalAppointments
 
         Task<List<MedicalAppointment>> SelectAsync(DateTime? todayAppointment = null, int? patientId = null);
 
-        Task InsertAsync(MedicalAppointment medicalAppointment);
+        Task RemoveAsync(MedicalAppointment medicalAppointment);
     }
 }

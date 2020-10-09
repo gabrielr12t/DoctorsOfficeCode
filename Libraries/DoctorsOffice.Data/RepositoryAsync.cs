@@ -33,7 +33,7 @@ namespace DoctorsOffice.Data
             await _set.AddRangeAsync(entities);
             return await CommitAsync();
         }
-        
+
         public async Task<TEntity> GetByIdAsync(object id)
         {
             return await _set.FindAsync(id);
@@ -62,6 +62,12 @@ namespace DoctorsOffice.Data
         {
             _set.UpdateRange(entities);
             return await CommitAsync();
+        }
+
+        public async Task RemoveAsync(TEntity entity)
+        {
+            _set.Remove(entity);
+            await CommitAsync();
         }
 
         private async Task<int> CommitAsync()
