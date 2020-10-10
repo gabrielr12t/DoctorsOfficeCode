@@ -1,9 +1,4 @@
-﻿using DoctorsOffice.Core.Models;
-using DoctorsOffice.Data;
-using DoctorsOffice.Data.Context;
-using DoctorsOffice.Services.MedicalAppointments;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
+using System;
 using Xunit;
 
 namespace DoctorsOffice.Services.Tests
