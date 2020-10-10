@@ -17,11 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorsOffice.Presentation.
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FE4FF4A9-C5FA-4334-909E-D6F06863C201}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{3461298C-A75E-4349-B9A9-9390FD9EFB19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorsOffice.Services.Tests", "Tests\DoctorsOffice.Services.Tests\DoctorsOffice.Services.Tests.csproj", "{9F5E739C-1C6C-48EC-A07B-D76B4416BA43}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorsOffice.Services.Tests", "Tests\DoctorsOffice.Services.Tests\DoctorsOffice.Services.Tests.csproj", "{9F5E739C-1C6C-48EC-A07B-D76B4416BA43}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DoctorsOffice.Api", "Presentation\DoctorsOffice.Api\DoctorsOffice.Api.csproj", "{E4052DD3-5954-46A8-8A48-D6F44E052C2D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorsOffice.Api", "Presentation\DoctorsOffice.Api\DoctorsOffice.Api.csproj", "{E4052DD3-5954-46A8-8A48-D6F44E052C2D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
