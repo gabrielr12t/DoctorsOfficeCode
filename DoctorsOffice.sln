@@ -21,6 +21,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorsOffice.WebApi", "Doc
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoctorsOffice.Services.Tests", "DoctorsOffice.Services.Tests\DoctorsOffice.Services.Tests.csproj", "{9001EEDF-7E78-4801-958C-7891424E8893}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Clients", "Clients", "{3461298C-A75E-4349-B9A9-9390FD9EFB19}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

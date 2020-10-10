@@ -49,7 +49,6 @@ namespace DoctorsOffice.Services.Tests
             await _medicalAppointmentService.RemoveAsync(_medicalAppointment);
         }
 
-
         [Fact]
         public async void StartDataGreaterThanEndDate()
         {
