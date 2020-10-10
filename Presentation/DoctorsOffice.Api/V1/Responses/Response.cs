@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 
-namespace DoctorsOffice.WebApi.V1.Responses
+namespace DoctorsOffice.Api.V1.Responses
 {
     public class Response
     {

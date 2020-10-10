@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:65255",
-      "sslPort": 44375
+      "applicationUrl": "http://localhost:61832",
+      "sslPort": 44310
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DoctorsOffice.WebApi": {
+    "DoctorsOffice.Api": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "api/medicalAppointment/medical-appointments",

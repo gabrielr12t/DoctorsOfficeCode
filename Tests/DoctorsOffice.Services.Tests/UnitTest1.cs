@@ -1,3 +1,9 @@
+using DoctorsOffice.Core.Models;
+using DoctorsOffice.Data;
+using DoctorsOffice.Data.Context;
+using DoctorsOffice.Services.MedicalAppointments;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using Xunit;
 
@@ -30,10 +36,10 @@ namespace DoctorsOffice.Services.Tests
 
             _medicalAppointment = new MedicalAppointment
             {
-                Comments = "Consulta com o mÃ©dico x",
+                Comments = "Consulta com o médico x",
                 Patient = _patient,
-                StartDate = new System.DateTime(2021, 10, 08, 12, 01, 00),
-                FinalDate = new System.DateTime(2021, 10, 08, 12, 02, 00)
+                StartDate = new DateTime(2021, 10, 08, 12, 01, 00),
+                FinalDate = new DateTime(2021, 10, 08, 12, 02, 00)
             };
         }
 

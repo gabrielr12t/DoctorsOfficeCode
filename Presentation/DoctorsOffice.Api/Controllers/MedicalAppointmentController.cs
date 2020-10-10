@@ -1,12 +1,12 @@
-﻿using DoctorsOffice.Core.Models;
+﻿using DoctorsOffice.Api.V1.Responses;
+using DoctorsOffice.Core.Models;
 using DoctorsOffice.Services.MedicalAppointments;
-using DoctorsOffice.WebApi.V1.Responses;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace DoctorsOffice.WebApi.Controllers
+namespace DoctorsOffice.Api.Controllers
 {
     [ApiController]
     // [Route("api/medicalAppointment")]

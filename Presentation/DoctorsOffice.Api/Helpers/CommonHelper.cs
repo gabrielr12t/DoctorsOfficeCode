@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 
-namespace DoctorsOffice.WebApi.Helpers
+namespace DoctorsOffice.Api.Helpers
 {
     public class CommonHelper
     {
