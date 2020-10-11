@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace DoctorsOffice.Data.Install
 {
-    public class FindServers
+    public class FindSqlServer
     {
         public IEnumerable<string> GetSqlServersName()
         {

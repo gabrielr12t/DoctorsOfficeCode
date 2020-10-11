@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
-import { Console } from 'console';
 import * as moment from 'moment';
 import { MedicalAppointment } from 'src/app/shared/model/medicalAppointment.model';
 import { ResponseDoctorsOffice } from 'src/app/shared/model/responseDoctorsOffice.model';

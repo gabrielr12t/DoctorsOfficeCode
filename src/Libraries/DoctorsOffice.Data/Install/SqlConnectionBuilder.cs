@@ -6,11 +6,11 @@ namespace DoctorsOffice.Data.Install
 {
     public class SqlConnectionBuilder
     {
-        private readonly FindServers _servers;
+        private readonly FindSqlServer _servers;
 
         public SqlConnectionBuilder(string databaseName = null)
         {
-            _servers = new FindServers();
+            _servers = new FindSqlServer();
             var sqlServerName = SearchSqlServers();
 
             DatabaseName = !string.IsNullOrEmpty(databaseName) ? databaseName : "DoctorsOffice";

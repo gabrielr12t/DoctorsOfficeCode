@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace DoctorsOffice.Api
 {
@@ -21,9 +22,11 @@ namespace DoctorsOffice.Api
             services.ConfigureApiServices();
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DoctorsOfficeContext context)
+        public void Configure(IApplicationBuilder app,
+            IWebHostEnvironment env, 
+            DoctorsOfficeContext context)
         {
-            app.ConfigureApplicationBuilder(env, context);
+            app.ConfigureApplicationBuilder(env,  context);
         }
     }
 }

@@ -9,7 +9,7 @@ import { ResponseDoctorsOffice } from '../model/responseDoctorsOffice.model';
 })
 export class MedicalAppointmentService {
 
-  apiUrl = 'https://localhost:5342/api/medicalAppointment';
+  apiUrl = 'https://localhost:44310/api/medicalAppointment';
 
   httpOptions = {
     headers: new HttpHeaders({

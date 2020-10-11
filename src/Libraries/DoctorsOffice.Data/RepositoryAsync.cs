@@ -42,18 +42,6 @@ namespace DoctorsOffice.Data
             return Task.FromResult(Table.Where(predicate));
         }
 
-        public virtual async Task<int> UpdateAsync(TEntity obj)
-        {
-            _context.Entry(obj).State = EntityState.Modified;
-            return await CommitAsync();
-        }
-
-        public virtual async Task<int> UpdateAsync(IEnumerable<TEntity> entities)
-        {
-            _set.UpdateRange(entities);
-            return await CommitAsync();
-        }
-
         public async Task RemoveAsync(TEntity entity)
         {
             _set.Remove(entity);

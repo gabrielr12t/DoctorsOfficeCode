@@ -5,6 +5,7 @@ using DoctorsOffice.Services.MedicalAppointments;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using System.Net;
 
 namespace DoctorsOffice.Presentation.Framework.Infrastructure.Extensions
@@ -17,6 +18,7 @@ namespace DoctorsOffice.Presentation.Framework.Infrastructure.Extensions
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
             services.AddControllers();
             services.AddAuthorization();
+            services.AddLogging(p => p.AddConsole());
 
             services.AddScoped(typeof(IMedicalAppointmentService), typeof(MedicalAppointmentService));
             services.AddScoped(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));

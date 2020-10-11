@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
 namespace DoctorsOffice.Api
 {
@@ -12,14 +13,22 @@ namespace DoctorsOffice.Api
 
         public static IHostBuilder CreateHostBuilder(string[] args)
         {
-            IHostBuilder host = Host.CreateDefaultBuilder(args).ConfigureWebHostDefaults(ConfigureWebBuilder);
+            IHostBuilder host = Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(ConfigureWebBuilder)
+                .ConfigureLogging(ConfigureLogging);
             return host;
         }
 
         private static void ConfigureWebBuilder(IWebHostBuilder webHostBuilder)
         {
             webHostBuilder.UseStartup<Startup>();
-            webHostBuilder.UseUrls("https://localhost:5342");
+            webHostBuilder.UseUrls("https://localhost:44310");
+        }
+
+        private static void ConfigureLogging(ILoggingBuilder loggingBuilder)
+        {
+            loggingBuilder.AddConsole();
+            loggingBuilder.AddDebug();
         }
     }
 }

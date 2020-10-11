@@ -12,9 +12,6 @@ namespace DoctorsOffice.Data
         Task<TEntity> AddAsync(TEntity obj);
         Task<int> AddAsync(IEnumerable<TEntity> entities);
  
-        Task<int> UpdateAsync(TEntity obj);
-        Task<int> UpdateAsync(IEnumerable<TEntity> entities);
-
         Task RemoveAsync(TEntity entity);
 
         IQueryable<TEntity> Table { get; }
