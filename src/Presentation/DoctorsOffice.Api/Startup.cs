@@ -18,7 +18,7 @@ namespace DoctorsOffice.Api
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.ConfigureApiServices(_configuration);
+            services.ConfigureApiServices();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DoctorsOfficeContext context)

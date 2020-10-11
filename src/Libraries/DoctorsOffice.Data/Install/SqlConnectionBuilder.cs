@@ -4,11 +4,11 @@ using System.Linq;
 
 namespace DoctorsOffice.Data.Install
 {
-    public class ConnectionBuilder
+    public class SqlConnectionBuilder
     {
         private readonly FindServers _servers;
 
-        public ConnectionBuilder(string databaseName = null)
+        public SqlConnectionBuilder(string databaseName = null)
         {
             _servers = new FindServers();
             var sqlServerName = SearchSqlServers();

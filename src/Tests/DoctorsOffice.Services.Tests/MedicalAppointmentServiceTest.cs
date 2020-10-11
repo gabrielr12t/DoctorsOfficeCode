@@ -17,7 +17,7 @@ namespace DoctorsOffice.Services.Tests
         private readonly Patient _patient;
         private readonly MedicalAppointment _medicalAppointment;
 
-        private static ConnectionBuilder connectionBuilder = new ConnectionBuilder();
+        private static SqlConnectionBuilder connectionBuilder = new SqlConnectionBuilder();
         private DefaultConnectionString defaultConnection = connectionBuilder.BuildConnectionString();
 
         public MedicalAppointmentServiceTest()

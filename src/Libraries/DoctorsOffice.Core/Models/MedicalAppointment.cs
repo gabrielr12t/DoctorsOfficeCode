@@ -14,10 +14,11 @@ namespace DoctorsOffice.Core.Models
 
         public void Validate()
         {
-            ValidationCondition.ValidateCondition(StartDate < FinalDate, "A data inicial não deve ser maior que a data final");
-            ValidationCondition.ValidateCondition(Patient != null, "Deve haver um paciente para a consulta");
-            ValidationCondition.ValidateCondition(StartDate != DateTime.MinValue, "Data inicial é obrigatória");
-            ValidationCondition.ValidateCondition(FinalDate != DateTime.MinValue, "Data final é obrigatória");
+            ValidationCondition.ValidateCondition(StartDate < FinalDate, "A data inicial não deve ser maior que a data final.");
+            ValidationCondition.ValidateCondition(Patient != null, "Deve haver um paciente para a consulta.");
+            ValidationCondition.ValidateCondition(StartDate != DateTime.MinValue, "Data inicial é obrigatória.");
+            ValidationCondition.ValidateCondition(FinalDate != DateTime.MinValue, "Data final é obrigatória.");
+            ValidationCondition.ValidateCondition(StartDate >= DateTime.Today, "Não pode agendar uma consulta no passado.");
         }
     }
 }
