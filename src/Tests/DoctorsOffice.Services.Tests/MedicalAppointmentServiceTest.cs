@@ -34,7 +34,7 @@ namespace DoctorsOffice.Services.Tests
             _patient = new Patient
             {
                 Name = "Gabriel",
-                BirthDate = new System.DateTime(1995, 06, 16),
+                BirthDate = new DateTime(1995, 06, 16),
             };
 
             _medicalAppointment = new MedicalAppointment

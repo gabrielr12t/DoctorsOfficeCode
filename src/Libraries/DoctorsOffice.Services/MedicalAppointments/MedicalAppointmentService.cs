@@ -53,7 +53,7 @@ namespace DoctorsOffice.Services.MedicalAppointments
                 query = query.Where(p => p.StartDate >= DateTime.Now && p.FinalDate >= DateTime.Now);
 
             if (fromPreviousDate.HasValue)
-                query = query.Where(p => p.StartDate <= DateTime.Now && p.FinalDate <= DateTime.Now);
+                query = query.Where(p => p.StartDate <= DateTime.Now);
 
             if (patientId.HasValue)
                 query = query.Where(p => p.PatientId == patientId.Value);
