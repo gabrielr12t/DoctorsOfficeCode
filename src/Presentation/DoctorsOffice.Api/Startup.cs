@@ -1,3 +1,4 @@
+using DoctorsOffice.Data.Context;
 using DoctorsOffice.Presentation.Framework.Infrastructure.Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -20,9 +21,9 @@ namespace DoctorsOffice.Api
             services.ConfigureApiServices(_configuration);
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, DoctorsOfficeContext context)
         {
-            app.ConfigureApplicationBuilder(env);
+            app.ConfigureApplicationBuilder(env, context);
         }
     }
 }

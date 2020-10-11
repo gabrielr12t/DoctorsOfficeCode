@@ -1,10 +1,8 @@
-﻿using DoctorsOffice.Core.Models;
-using DoctorsOffice.Core.Validators;
+﻿using DoctorsOffice.Core;
 using DoctorsOffice.Data;
 using DoctorsOffice.Data.Context;
+using DoctorsOffice.Data.Install;
 using DoctorsOffice.Services.MedicalAppointments;
-using FluentValidation;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -24,7 +22,10 @@ namespace DoctorsOffice.Presentation.Framework.Infrastructure.Extensions
 
             services.AddScoped(typeof(IMedicalAppointmentService), typeof(MedicalAppointmentService));
             services.AddScoped(typeof(IRepositoryAsync<>), typeof(RepositoryAsync<>));
-            services.AddDbContext<DoctorsOfficeContext>(context => context.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
+
+            ConnectionBuilder connectionBuilder = new ConnectionBuilder();
+            DefaultConnectionString defaultConnection = connectionBuilder.BuildConnectionString();
+            services.AddDbContext<DoctorsOfficeContext>(context => context.UseSqlServer(defaultConnection.ConnectionString));
         }
     }
 }
