@@ -15,7 +15,7 @@ namespace DoctorsOffice.Services.Tests
         private readonly IMedicalAppointmentService _medicalAppointmentService;
         private readonly Patient _patient;
         private readonly MedicalAppointment _medicalAppointment;
-        private readonly string ConnectionString = "Data Source=DESKTOP-2N6J4IC\\SQLEXPRESS;Initial Catalog=DoctorsOffice;Integrated Security=true;";
+        private readonly string ConnectionString = "Data Source=DESKTOP-I32RDI7;Initial Catalog=DoctorsOffice;Integrated Security=true;";
 
         public MedicalAppointmentServiceTest()
         {
@@ -36,10 +36,10 @@ namespace DoctorsOffice.Services.Tests
 
             _medicalAppointment = new MedicalAppointment
             {
-                Comments = "Consulta com o médico x",
+                Comments = "Consulta com o mÃ©dico x",
                 Patient = _patient,
-                StartDate = new DateTime(2021, 10, 08, 12, 01, 00),
-                FinalDate = new DateTime(2021, 10, 08, 12, 02, 00)
+                StartDate = new DateTime(2021, 10, 08, 12, 00, 00),
+                FinalDate = new DateTime(2021, 10, 08, 12, 10, 00) 
             };
         }
 

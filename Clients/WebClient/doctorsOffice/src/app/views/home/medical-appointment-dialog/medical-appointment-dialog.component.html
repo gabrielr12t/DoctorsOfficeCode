@@ -1,0 +1,56 @@
+<h1 mat-dialog-title>Nova consulta</h1>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="medicalAppointmentForm">
+
+    <div fxLayout="row wrap">
+      <div fxFlex="40" fxFill fxLayouotAlign="start center">
+        <mat-form-field class="example-full-width">
+          <mat-label>Data inicial</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="startDate" name="startDate">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div fxFlex></div>
+      <div fxFlex="40" fxFill fxLayouotAlign="start center">
+        <mat-form-field class="example-full-width">
+          <mat-label>Hora inicial</mat-label>
+          <input matInput type="time" formControlName="startTime" name="startTime" #time>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div fxLayout="row wrap">
+      <div fxFlex="40" fxFill fxLayouotAlign="start center">
+        <mat-form-field class="example-full-width">
+          <mat-label>Data final</mat-label>
+          <input matInput [matDatepicker]="picker1" formControlName="finalDate" name="finalDate">
+          <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+          <mat-datepicker #picker1></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <div fxFlex></div>
+      <div fxFlex="40" fxFill fxLayouotAlign="start center">
+        <mat-form-field class="example-full-width">
+          <mat-label>Hora final</mat-label>
+          <input matInput type="time" formControlName="finalTime" name="finalTime" #time>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Paciente</mat-label>
+      <input matInput formControlName="patient.name" name="name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Comentários</mat-label>
+      <input matInput formControlName="comments" name="comments">
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="createMedicalAppointment()">Adicionar</button>
+  <button mat-button (click)="cancel()">Cancelar</button>
+</div>

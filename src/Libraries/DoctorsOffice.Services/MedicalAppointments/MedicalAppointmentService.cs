@@ -36,7 +36,7 @@ namespace DoctorsOffice.Services.MedicalAppointments
                 throw new InvalidOperationException("Já existe uma consulta dentro dessa data.");
             }
 
-            if(medicalAppointment is IValidate validate)
+            if (medicalAppointment is IValidate validate)
             {
                 validate.Validate();
             }
@@ -44,21 +44,24 @@ namespace DoctorsOffice.Services.MedicalAppointments
             return await _medicalAppointmentRepository.AddAsync(medicalAppointment);
         }
 
-        public async Task<List<MedicalAppointment>> SelectAsync(DateTime? todayAppointment = null, int? patientId = null)
+        public async Task<List<MedicalAppointment>> SelectAsync(bool? fromTodayDate = null, bool? fromPreviousDate = null,int? patientId = null)
         {
             var query = _medicalAppointmentRepository.Table;
 
             query = query.Include(p => p.Patient);
 
-            if (todayAppointment.HasValue)
-                query = query.Where(p => p.StartDate == todayAppointment.Value);
+            if (fromTodayDate.HasValue)
+                query = query.Where(p => p.StartDate <= DateTime.Now);
+
+            if (fromPreviousDate.HasValue)
+                query = query.Where(p => p.StartDate >= DateTime.Now);
 
             if (patientId.HasValue)
                 query = query.Where(p => p.PatientId == patientId.Value);
 
             return await query.ToListAsync();
         }
-       
+
         public async Task RemoveAsync(MedicalAppointment medicalAppointment)
         {
             if (medicalAppointment == null)

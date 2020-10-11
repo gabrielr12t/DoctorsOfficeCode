@@ -9,7 +9,7 @@ namespace DoctorsOffice.Services.MedicalAppointments
     {
         Task<MedicalAppointment> AddAsync(MedicalAppointment medicalAppointment);
 
-        Task<List<MedicalAppointment>> SelectAsync(DateTime? todayAppointment = null, int? patientId = null);
+        Task<List<MedicalAppointment>> SelectAsync(bool? fromTodayDate = null, bool? fromPreviousDate = null, int? patientId = null);
 
         Task RemoveAsync(MedicalAppointment medicalAppointment);
     }
