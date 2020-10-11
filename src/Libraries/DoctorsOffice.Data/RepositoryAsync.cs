@@ -34,16 +34,6 @@ namespace DoctorsOffice.Data
             return await CommitAsync();
         }
 
-        public async Task<TEntity> GetByIdAsync(object id)
-        {
-            return await _set.FindAsync(id);
-        }
-
-        public async Task<IQueryable<TEntity>> GetAllAsync()
-        {
-            return await Task.FromResult(_set);
-        }
-
         public Task<IQueryable<TEntity>> GetAllAsync(Expression<Func<TEntity, bool>> predicate)
         {
             if (predicate == null)

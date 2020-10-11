@@ -4,7 +4,7 @@ using System;
 
 namespace DoctorsOffice.Core.Models
 {
-    public class MedicalAppointment : ModelBase, IValidate
+    public class MedicalAppointment : ModelBase, IValidateModel
     {
         public DateTime StartDate { get; set; }
         public DateTime FinalDate { get; set; }

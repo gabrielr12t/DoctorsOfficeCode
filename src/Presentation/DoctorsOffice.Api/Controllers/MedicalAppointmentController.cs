@@ -40,13 +40,13 @@ namespace DoctorsOffice.Api.Controllers
 
         [Route("medical-appointment")]
         [HttpPost]
-        public async Task<Response<MedicalAppointment>> MedicalAppointmentCreate([FromBody] MedicalAppointment medicalAppointment)
+        public async Task<Response<MedicalAppointment>> MedicalAppointmentCreate([FromBody] MedicalAppointmentRequest request)
         {
             Response<MedicalAppointment> response = new Response<MedicalAppointment>();
 
             try
             {
-                await _medicalAppointmentService.AddAsync(medicalAppointment);
+                await _medicalAppointmentService.AddAsync(request.ToModel());
             }
             catch (Exception ex)
             {

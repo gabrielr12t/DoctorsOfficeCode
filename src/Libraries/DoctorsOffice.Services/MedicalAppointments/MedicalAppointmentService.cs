@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Threading.Tasks;
 
 namespace DoctorsOffice.Services.MedicalAppointments
@@ -36,7 +35,7 @@ namespace DoctorsOffice.Services.MedicalAppointments
                 throw new InvalidOperationException("Já existe uma consulta dentro dessa data.");
             }
 
-            if (medicalAppointment is IValidate validate)
+            if (medicalAppointment is IValidateModel validate)
             {
                 validate.Validate();
             }
@@ -44,20 +43,22 @@ namespace DoctorsOffice.Services.MedicalAppointments
             return await _medicalAppointmentRepository.AddAsync(medicalAppointment);
         }
 
-        public async Task<List<MedicalAppointment>> SelectAsync(bool? fromTodayDate = null, bool? fromPreviousDate = null,int? patientId = null)
+        public async Task<List<MedicalAppointment>> SelectAsync(bool? fromTodayDate = null, bool? fromPreviousDate = null, int? patientId = null)
         {
             var query = _medicalAppointmentRepository.Table;
 
             query = query.Include(p => p.Patient);
 
             if (fromTodayDate.HasValue)
-                query = query.Where(p => p.StartDate <= DateTime.Now);
+                query = query.Where(p => p.StartDate >= DateTime.Now && p.FinalDate >= DateTime.Now);
 
             if (fromPreviousDate.HasValue)
-                query = query.Where(p => p.StartDate >= DateTime.Now);
+                query = query.Where(p => p.StartDate <= DateTime.Now && p.FinalDate <= DateTime.Now);
 
             if (patientId.HasValue)
                 query = query.Where(p => p.PatientId == patientId.Value);
+
+            query = query.OrderByDescending(p => p.StartDate);
 
             return await query.ToListAsync();
         }
