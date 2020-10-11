@@ -29,7 +29,7 @@ export class MedicalAppointmentService {
     return this.httpClient.get<ResponseDoctorsOffice<MedicalAppointment>>(this.apiUrl + '/medical-appointments?fromTodayDate=true');
   }
 
-  public postMedicalAppointment(medicalAppointment: any): Observable<any> {
+  public postMedicalAppointment(medicalAppointment: any):  Observable<ResponseDoctorsOffice<MedicalAppointment>> {
     return this.httpClient.post<any>(this.apiUrl + '/medical-appointment', medicalAppointment, this.httpOptions);
   }
 }

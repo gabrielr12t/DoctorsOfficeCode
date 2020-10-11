@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Console } from 'console';
 import * as moment from 'moment';
+import { MedicalAppointment } from 'src/app/shared/model/medicalAppointment.model';
+import { ResponseDoctorsOffice } from 'src/app/shared/model/responseDoctorsOffice.model';
 import { MedicalAppointmentService } from 'src/app/shared/service/medical-appointment.service';
 
 @Component({
@@ -11,6 +14,7 @@ import { MedicalAppointmentService } from 'src/app/shared/service/medical-appoin
 })
 export class MedicalAppointmentDialogComponent implements OnInit {
   public medicalAppointmentForm: FormGroup;
+  public response: ResponseDoctorsOffice<MedicalAppointment>;
 
   constructor(
     private fb: FormBuilder,
@@ -38,10 +42,15 @@ export class MedicalAppointmentDialogComponent implements OnInit {
     this.medicalAppointmentForm.value.startDate = newStartDate.format("YYYY/MM/DD") + "T" + this.medicalAppointmentForm.value.startTime;
     this.medicalAppointmentForm.value.finalDate = newFinalDate.format("YYYY/MM/DD") + "T" + this.medicalAppointmentForm.value.finalTime;
 
-    this.rest.postMedicalAppointment(this.medicalAppointmentForm.value).subscribe(result => { });
-    this.dialogRef.close();
-    this.medicalAppointmentForm.reset();
-    window.location.reload();
+    this.rest.postMedicalAppointment(this.medicalAppointmentForm.value).subscribe(result => {
+      this.response = result;
+
+      if (!this.response.hasError) {
+        this.dialogRef.close();
+        this.medicalAppointmentForm.reset();
+        window.location.reload();
+      }
+    });
   }
 
   cancel(): void {
